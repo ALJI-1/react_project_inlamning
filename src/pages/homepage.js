@@ -12,7 +12,7 @@ export function Homepage() {
                   container you need.
                 </p>
               
-                <p>I also use favicon. Enjoy!</p>
+                <p>I also use favicon. Enjoy!!!!!</p>
             </div>
           </div>
         </div>
