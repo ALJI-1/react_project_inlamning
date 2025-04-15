@@ -1,51 +1,49 @@
 import React, {useState, useEffect} from 'react'
 import '../css/grid.css';
-
 import musicService from '../services/music-group-service';
 import { CreateList } from '../pages/listpage';
+import { Detailpage } from '../pages/detailpage';
 
-const tableHeaders = ["first name", "last name", "birthday"];
+
 
 export function ArtistList(props) {
 
-  const _pSize = props.pageSize || 5;
+  const _pSize = 10;
 
   const [pageSize, setPageSize] = useState(_pSize);
   const [currentPageNr, setCurrentPageNr] = useState(0);
   const [maxPageNr, setMaxPageNr] = useState(0);
   const [dataPage, setDataPage] = useState([]);
+  const [searchFilter, setSearchFilter] = useState(null);
+ 
 
   useEffect(
     () => {
 
-      // const d = [..._persons.slice(currentPageNr * pageSize, currentPageNr * pageSize + pageSize)];
-      // setDataPage(d);
-
       (async() => {
+       
         const service = new musicService("https://seido-webservice-307d89e1f16a.azurewebsites.net/api");
+        const artists = await service.readMusicGroupsAsync(currentPageNr, true, searchFilter, pageSize); 
 
-        const artists = await service.readArtistsAsync(currentPageNr, true, null, pageSize); 
-
-        console.log(`${artists.pageItems[0].firstName} ${artists.pageItems[0].lastName} ${artists.pageItems[0]?.birthDay}`);
-
-        console.log (artists.pageCount);
+        
         setMaxPageNr(artists.pageCount);
         setDataPage(artists.pageItems);
         
 
       })();
     
-    }, [pageSize, currentPageNr, maxPageNr]);
+    }, [pageSize, currentPageNr, maxPageNr, searchFilter]);
 
-
-  const onClickHeader = (e) => 
-    {
-      console.log(`onClickHeader`);
+    const onClickSearch = async (e) => {
+      setSearchFilter(e);
+      console.log(`onClickSearch: ${e}`);
     }
 
-  const onClickRow = (e) => 
+  const onClickDetails = (e) => 
     {
       console.log(`onClickRow rowitemid: ${e.rowid}`);
+      
+      <Detailpage headers={props?.headers} initialData={dataPage} />
     }
 
   const onClickPrev = (e) => 
@@ -73,10 +71,11 @@ export function ArtistList(props) {
       
           <p>Below are some of the worlds most famous Music bands.</p>
 
+
       
-      <CreateList headers={tableHeaders} initialData={dataPage} 
-            onClickHeader={onClickHeader} onClickRow={onClickRow}
-            onClickPrev={onClickPrev} onClickNext={onClickNext}/>
+      <CreateList headers={props?.headers} initialData={dataPage} 
+              pageSize={pageSize} onClickDetails={onClickDetails} onClickSearch={onClickSearch}
+              onClickPrev={onClickPrev} onClickNext={onClickNext}/>
       </div>
     </>
   );}
