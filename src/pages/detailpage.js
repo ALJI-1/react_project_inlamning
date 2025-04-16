@@ -1,15 +1,19 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import {useState, useEffect } from 'react';
 import musicService from '../services/music-group-service';
 import '../css/grid.css';
+import { useParams } from 'react-router';
 
-export function Detailpage(props) {
+export function DetailPage() {
+
+  const tableHeaders = ["Band", "Genre", "Etableringsår"];
+  const { id } = useParams();
   const [wapiData, setWapiData] = useState(null);
 
   useEffect(() => {
     (async () => {
       const service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
-      const data = await service.readMusicGroupAsync("9535f09c-22e3-4381-b556-00028331650b", false);
+      const data = await service.readMusicGroupAsync(id, false);
       setWapiData(data);
     })();
   }, []);
@@ -17,7 +21,7 @@ export function Detailpage(props) {
   return (
     <>
       <div className="row text-center justify-content-center">
-        {props?.headers?.slice(0, 3).map((item, index) => (
+        {tableHeaders.map((item, index) => (
           <div key={index} className="col-md-3 themed-grid-head-col mb-2">{item}</div> 
         ))}
       </div>

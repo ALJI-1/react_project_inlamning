@@ -1,39 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
-import {Homepage} from'./pages/homepage';
+
 import {Header} from './components/header';
 import {Footer} from './components/footer';
-import {ArtistList} from './components/artistList';
-import {Detailpage} from './pages/detailpage';
-import musicService from './services/music-group-service';
-import { useState, useEffect } from 'react';
+import { BrowserRouter} from 'react-router';
+import AppRouter from './routes/approuter';
 
-function App() {
 
-  const [groupsOfArtists, setGroupsOfArtists] = useState([]);
-  const tableHeaders = ["Band", "Genre", "Etableringsår", "Medlemmar"];
-
-  useEffect(() => {
-  (async() => {
-    const service = new musicService("https://seido-webservice-307d89e1f16a.azurewebsites.net/api");
-  const artists = await service.readMusicGroupsAsync(0, false, null, 10); 
-    setGroupsOfArtists(artists.pageItems);
-})();}
-,[]);
-  
+function App() { 
   return (
     <>
-      {/* <Header/>
-      <Homepage/>
-      <Footer/> */}
+      
+      <BrowserRouter> 
 
       <Header/>
-      <ArtistList headers={tableHeaders}/>
-      <Footer/>
+      <AppRouter/>
+      <Footer/> 
 
-      <Header/>
-      <Detailpage headers={tableHeaders} groups = {groupsOfArtists} />
-      <Footer/>
+      </BrowserRouter> 
+
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Homepage() {
+export function HomePage() {
   return (
     <>
     <div className="container px-4 py-4" id="home">

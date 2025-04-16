@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import '../css/grid.css';
 import musicService from '../services/music-group-service';
-import { CreateList } from '../pages/listpage';
-import { Detailpage } from '../pages/detailpage';
+import { ListPage } from '../pages/listpage';
+import { useNavigate} from 'react-router';
 
 
 
@@ -15,10 +15,10 @@ export function ArtistList(props) {
   const [maxPageNr, setMaxPageNr] = useState(0);
   const [dataPage, setDataPage] = useState([]);
   const [searchFilter, setSearchFilter] = useState(null);
+  const navigate = useNavigate();
  
 
-  useEffect(
-    () => {
+  useEffect(() => {
 
       (async() => {
        
@@ -41,9 +41,10 @@ export function ArtistList(props) {
 
   const onClickDetails = (e) => 
     {
-      console.log(`onClickRow rowitemid: ${e.rowid}`);
-      
-      <Detailpage headers={props?.headers} initialData={dataPage} />
+
+      console.log(e.rowid);
+      navigate(`/detailpage/${e.rowid}`);
+
     }
 
   const onClickPrev = (e) => 
@@ -73,8 +74,9 @@ export function ArtistList(props) {
 
 
       
-      <CreateList headers={props?.headers} initialData={dataPage} 
-              pageSize={pageSize} onClickDetails={onClickDetails} onClickSearch={onClickSearch}
+      <ListPage headers={props?.headers} initialData={dataPage} 
+              currentPageNr={currentPageNr} maxPageNr={maxPageNr}
+              onClickDetails={onClickDetails} onClickSearch={onClickSearch}
               onClickPrev={onClickPrev} onClickNext={onClickNext}/>
       </div>
     </>
