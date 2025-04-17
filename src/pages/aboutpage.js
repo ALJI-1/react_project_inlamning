@@ -1,8 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
 import { coder, coder1, coder2 } from '../images';
+
+// Har hämtat en carousel från bootstrap hemsida. Hoppas de är okej att använda
 
 export function AboutPage() {
     return (

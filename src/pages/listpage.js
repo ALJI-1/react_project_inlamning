@@ -27,7 +27,10 @@ export function ListPage(props) {
         
       return (
       <>
+      <div className="container px-4 py-4" id="list-of-groups">
+          <h2 className="pb-2 border-bottom">List of Music groups</h2>
         <h4 className="text-center my-4">Sök efter ditt favoritband</h4>
+        </div>
       
         <div className="container mb-4">
           <form>
@@ -43,26 +46,22 @@ export function ListPage(props) {
         </div>
         
         <div className="container">
-          <div className="row mb-2 text-center bg-light py-2 justify-content-center align-items-center">
-            <div className="col-md-5 font-weight-bold">Band</div>
+          {
+        props?.initialData?.map((row, idx) => (
+          <div key={row.id} data-rowid={row.musicGroupId} className="row mb-2 justify-content-center">
+        <div className="col-md-8 themed-grid-col d-flex justify-content-between align-items-center bg-white p-2 border rounded" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <span className="text-truncate" style={{ maxWidth: '70%' }}>{row?.name}</span>
+          <span>
+        <Link
+          to={`/detailpage/${row.musicGroupId}`} 
+          className="btn btn-sm btn-outline-primary"
+        >
+          Detaljer
+        </Link>
+          </span>
         </div>
-
-        {
-          props?.initialData?.map((row, idx) => (
-            <div key={row.id} data-rowid={row.musicGroupId} className="row mb-2 text-center align-items-center">
-              <div className="col-md-15 themed-grid-col d-flex justify-content-between align-items-center bg-white p-2 border rounded">
-            {row?.name}
-            <span>
-                <Link
-                  to={`/detailpage/${row.musicGroupId}`} 
-                  className="btn btn-sm btn-outline-primary"
-                >
-                  Detaljer
-                </Link>
-              </span>
-              </div>
-            </div>
-            ))
+          </div>
+        ))
           }
         </div>
       
@@ -70,17 +69,17 @@ export function ListPage(props) {
           <ul className="pagination justify-content-center">
         <li className="page-item">
           <button className="page-link" aria-label="Previous" onClick={onClickPrev}>
-            <span aria-hidden="true">&laquo;</span>
+        <span aria-hidden="true">&laquo;</span>
           </button>
         </li>
         <li className="page-item disabled">
           <span className="page-link">
-            sida {props?.currentPageNr + 1} av {props?.maxPageNr}
+        sida {props?.currentPageNr + 1} av {props?.maxPageNr}
           </span>
         </li>
         <li className="page-item">
           <button className="page-link" aria-label="Next" onClick={onClickNext}>
-            <span aria-hidden="true">&raquo;</span>
+        <span aria-hidden="true">&raquo;</span>
           </button>
         </li>
           </ul>

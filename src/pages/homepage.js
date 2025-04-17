@@ -1,6 +1,7 @@
 import React from 'react'
 import musicService from '../services/music-group-service';
 import { useEffect, useState } from 'react';
+import {Link} from 'react-router';
 
 export function HomePage(props) {
   
@@ -34,11 +35,13 @@ export function HomePage(props) {
               </svg>
               <div>
                 <p className="bi bi-boombox mb-0 fs-1" style={{ alignContent: 'center' }}></p>
+                <Link
+                  to={`/artistList`}
+                  className="btn btn-sm">
                 <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                  <a className="nav-link" href="ListPage.html">
-                    Music groups
-                  </a>
+                    Music groups    
                 </h3>
+                </Link>
                 <p
                   id="count-groups"
                   style={{

@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+// Gjorde denna sida på skoj för att kunna lyssna på musik samtidigt
+// eftersom de är utanför kreterierna så har jag tagit hjälp av ai, men de är inte grekiska för mig 
 
 const YouTubePlayer = () => {
+  const [isMinimized, setIsMinimized] = useState(false);
+
+  const togglePlayer = () => {
+    setIsMinimized(!isMinimized);
+  };
+
   return (
-    <div style={{ position: 'fixed', bottom: 10, left: 10, zIndex: 1000 }}>
-      <iframe
-        width="300"
-        height="170"
-        src="https://www.youtube.com/embed/o1tj2zJ2Wvg?autoplay=0"
-        title="YouTube Music Player"
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen
-      ></iframe>
+    <div className="position-fixed bottom-0 start-0 p-3 bg-light shadow rounded" style={{ zIndex: 1000 }}>
+      <button 
+        onClick={togglePlayer} 
+        className="btn btn-primary mb-2 w-100"
+      >
+        {isMinimized ? 'Expand player' : 'Minimize player'}
+      </button>
+      <div className={`card ${isMinimized ? 'd-none' : ''}`}>
+        <div className="card-body text-center">
+          <p className="card-text">Press play and browse!</p>
+          <iframe
+            className="w-100"
+            height="170"
+            src="https://www.youtube.com/embed/pAgnJDJN4VA?autoplay=0"
+            title="YouTube Music Player"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
     </div>
   );
 };

@@ -4,6 +4,8 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import {Link} from 'react-router';
 
+// Tagit de mesta rakt från kursmaterialet. Jag har stylat till det mer med hjälp av ai 
+
 export function NavMenu() {
   return (
     <Navbar
@@ -24,7 +26,7 @@ export function NavMenu() {
           textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
         }}
       >
-        Lords of the Sound
+        LordsOfTheSound
       </Navbar.Brand>
       <Navbar.Toggle
         aria-controls="basic-navbar-nav"
@@ -106,7 +108,7 @@ export function NavMenu() {
             </NavDropdown.Item>
             <NavDropdown.Item
               as={Link}
-              to="../surprisepage"
+              to="../dailymusic"
               style={{
                 textDecoration: 'none',
                 transition: 'all 0.3s ease',
@@ -122,7 +124,7 @@ export function NavMenu() {
                 e.target.style.fontSize = '1rem';
               }}
             >
-              Surprise
+              Daily
             </NavDropdown.Item>
             <NavDropdown.Divider/>
             <NavDropdown.Item

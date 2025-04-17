@@ -57,16 +57,12 @@ export function ArtistList(props) {
 
     return (
     <>
-      <div class="container px-4 py-4" id="list-of-groups">
-          <h2 class="pb-2 border-bottom">List of Music bands</h2>
       
-          <p>Below are some of the worlds most famous Music bands.</p>
-
       <ListPage headers={props?.headers} initialData={dataPage} 
               currentPageNr={currentPageNr} maxPageNr={maxPageNr}
               onClickSearch={onClickSearch}
               onClickPrev={onClickPrev} onClickNext={onClickNext}/>
-      </div>
+      
     </>
   );}
 

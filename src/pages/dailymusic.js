@@ -2,8 +2,9 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+// Har hämtat en carousel från bootstrap hemsida. Hoppas de är okej att använda
 
-export function SurprisePage() {
+export function DailyMusic() {
     return (
         <div className="container px-4 py-4 text-center">
             <h2 className="pb-2 border-bottom">Music of the day</h2>
