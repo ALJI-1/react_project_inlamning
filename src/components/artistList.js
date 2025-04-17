@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react'
 import '../css/grid.css';
 import musicService from '../services/music-group-service';
 import { ListPage } from '../pages/listpage';
-import { useNavigate} from 'react-router';
-
 
 
 export function ArtistList(props) {
@@ -15,7 +13,7 @@ export function ArtistList(props) {
   const [maxPageNr, setMaxPageNr] = useState(0);
   const [dataPage, setDataPage] = useState([]);
   const [searchFilter, setSearchFilter] = useState(null);
-  const navigate = useNavigate();
+
  
 
   useEffect(() => {
@@ -37,14 +35,6 @@ export function ArtistList(props) {
     const onClickSearch = async (e) => {
       setSearchFilter(e);
       console.log(`onClickSearch: ${e}`);
-    }
-
-  const onClickDetails = (e) => 
-    {
-
-      console.log(e.rowid);
-      navigate(`/detailpage/${e.rowid}`);
-
     }
 
   const onClickPrev = (e) => 
@@ -72,11 +62,9 @@ export function ArtistList(props) {
       
           <p>Below are some of the worlds most famous Music bands.</p>
 
-
-      
       <ListPage headers={props?.headers} initialData={dataPage} 
               currentPageNr={currentPageNr} maxPageNr={maxPageNr}
-              onClickDetails={onClickDetails} onClickSearch={onClickSearch}
+              onClickSearch={onClickSearch}
               onClickPrev={onClickPrev} onClickNext={onClickNext}/>
       </div>
     </>

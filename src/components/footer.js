@@ -15,12 +15,38 @@ export  function Footer() {
 
             <li className="nav-item">
             <Link style={{textDecoration: 'none'}} to="/artistList">
-                <button className="btn btn-link nav-link px-2 text-muted" >Music List</button>
+                <button 
+                  className="btn btn-link nav-link px-2 text-muted hover-effect" 
+                  style={{ transition: 'all 0.3s ease', cursor: 'pointer' }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = 'blue';
+                    e.target.style.fontSize = '1.2rem';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = 'inherit';
+                    e.target.style.fontSize = '1rem';
+                  }}
+                >
+                  Music List
+                </button>
             </Link>
             </li>
             <li className="nav-item">
             <Link style={{textDecoration: 'none'}} to="/about">
-                <button className="btn btn-link nav-link px-2 text-muted">About</button>
+                <button 
+                  className="btn btn-link nav-link px-2 text-muted hover-effect" 
+                  style={{ transition: 'all 0.3s ease', cursor: 'pointer' }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = 'blue';
+                    e.target.style.fontSize = '1.2rem';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = 'inherit';
+                    e.target.style.fontSize = '1rem';
+                  }}
+                >
+                  About
+                </button>
             </Link>
             </li>
 

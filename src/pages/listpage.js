@@ -1,5 +1,6 @@
 import React from "react";
 import '../css/grid.css';
+import { Link } from "react-router";
 
 export function ListPage(props) {
 
@@ -9,15 +10,6 @@ export function ListPage(props) {
       if (props?.onClickSearch) props?.onClickSearch(searchInput);
     }
 
-  const onClickDetails = (e) => 
-  {
-    // Capture the id of the clicked row without using closest
-    const id = e.target.closest('.row.mb-2.text-center').dataset.rowid;
-
-    e.rowid = id;
-
-    if (props?.onClickDetails) props?.onClickDetails(e);
-  }
 
   const onClickPrev = (e) => 
   {
@@ -51,21 +43,26 @@ export function ListPage(props) {
         </div>
         
         <div className="container">
-          <div className="row mb-2 text-center bg-light py-2">
-        <div className="col-md-5 font-weight-bold">Band</div>
-          </div>
+          <div className="row mb-2 text-center bg-light py-2 justify-content-center align-items-center">
+            <div className="col-md-5 font-weight-bold">Band</div>
+        </div>
 
-          {
-        props?.initialData?.map((row, idx) => (
-          <div key={row.id} data-rowid={row.musicGroupId} className="row mb-2 text-center align-items-center">
-            <div className="col-md-5 themed-grid-col d-flex justify-content-between align-items-center bg-white p-2 border rounded">
-          {row?.name}
-          <span>
-            <button className="btn btn-sm btn-outline-primary" onClick={onClickDetails} type="button">Detaljer</button>
-          </span>
+        {
+          props?.initialData?.map((row, idx) => (
+            <div key={row.id} data-rowid={row.musicGroupId} className="row mb-2 text-center align-items-center">
+              <div className="col-md-15 themed-grid-col d-flex justify-content-between align-items-center bg-white p-2 border rounded">
+            {row?.name}
+            <span>
+                <Link
+                  to={`/detailpage/${row.musicGroupId}`} 
+                  className="btn btn-sm btn-outline-primary"
+                >
+                  Detaljer
+                </Link>
+              </span>
+              </div>
             </div>
-          </div>
-        ))
+            ))
           }
         </div>
       

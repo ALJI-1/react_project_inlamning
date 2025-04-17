@@ -19,42 +19,63 @@ export function DetailPage() {
   }, []);
 
   return (
-    <>
-      <div className="row text-center justify-content-center">
-        {tableHeaders.map((item, index) => (
-          <div key={index} className="col-md-3 themed-grid-head-col mb-2">{item}</div> 
-        ))}
-      </div>
+    <div className="container mt-5">
+      <h1 className="text-center mb-4">Detaljer för {wapiData?.name}</h1>
 
-      <div className="row mb-2 text-center justify-content-center">
-        <div className="col-md-3 themed-grid-col d-flex justify-content-center align-items-center mb-2">{wapiData?.name}</div>
-        <div className="col-md-3 themed-grid-col d-flex justify-content-center align-items-center mb-2">{wapiData?.strGenre}</div>
-        <div className="col-md-3 themed-grid-col d-flex justify-content-center align-items-center mb-2">{wapiData?.establishedYear}</div>
-      </div>
-
-      <div className="row mb-2 justify-content-center">
-        <div className="col-12 col-md-6 text-center mb-3">
-          <h3 className="mb-3">Albums</h3>
-          <div className="d-flex flex-column align-items-stretch gap-2">
-            {wapiData?.albums?.map((album, index) => (
-              <div key={index} className="themed-grid-col d-flex justify-content-center align-items-center text-center w-100">
-                {album.name}
+      <div className="row">
+        <div className="col-md-12">
+          <div className="card">
+            <div className="card-header text-center">
+              <div className="row">
+                {tableHeaders.map((item, index) => (
+                  <div key={index} className="col font-weight-bold">
+                    {item}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="col-12 col-md-6 text-center">
-          <h3 className="mb-3">Artists</h3>
-          <div className="d-flex flex-column align-items-stretch gap-2">
-            {wapiData?.artists?.map((artist, index) => (
-              <div key={index} className="themed-grid-col d-flex justify-content-center align-items-center text-center w-100">
-                {artist.firstName} {artist.lastName}
+            </div>
+            <div className="card-body">
+              <div className="row text-center">
+                <div className="col">{wapiData?.name}</div>
+                <div className="col">{wapiData?.strGenre}</div>
+                <div className="col">{wapiData?.establishedYear}</div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
-    </>
+
+      <div className="row mt-5">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-header text-center">
+              <h3>Albums</h3>
+            </div>
+            <ul className="list-group list-group-flush">
+              {wapiData?.albums?.map((album, index) => (
+                <li key={index} className="list-group-item text-center">
+                  {album.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-header text-center">
+              <h3>Artists</h3>
+            </div>
+            <ul className="list-group list-group-flush">
+              {wapiData?.artists?.map((artist, index) => (
+                <li key={index} className="list-group-item text-center">
+                  {artist.firstName} {artist.lastName}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
