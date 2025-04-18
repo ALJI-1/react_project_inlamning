@@ -1,9 +1,15 @@
 import React from 'react'
 import musicService from '../services/music-group-service';
-import { useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 import {Link} from 'react-router';
 
-export function HomePage(props) {
+// Inlämningsprojekt react - Albin Ingelsson
+
+// förstasida. Den har en egen useeffect, iife och asyncront anrop för att kommunicera med servises och hämta 
+// totala antalet artister, album och musikgrupper och printar ut det. även en snabblink till gruppsidan. 
+// mycket styling med bootstrap. Har också en liten musikspelare
+
+export function HomePage() {
   
   const [wapiData, setWapiData] = useState(null);
 
@@ -11,10 +17,9 @@ export function HomePage(props) {
     (async () => {
       const _service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
       let data = await _service.readInfoAsync();
-      setWapiData(data); 
+      setWapiData(data);
     })();
   }, []);
-  
 
   return (
     <div className="container px-4 py-4" id="home">
@@ -34,13 +39,14 @@ export function HomePage(props) {
                 <use xlinkHref="#boombox" />
               </svg>
               <div>
-                <p className="bi bi-boombox mb-0 fs-1" style={{ alignContent: 'center' }}></p>
-                <Link
-                  to={`/artistList`}
-                  className="btn btn-sm">
-                <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                    Music groups    
-                </h3>
+                <p
+                  className="bi bi-boombox mb-0 fs-1"
+                  style={{ alignContent: 'center' }}
+                ></p>
+                <Link to={`/artistList`} className="btn btn-sm">
+                  <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
+                    Music groups
+                  </h3>
                 </Link>
                 <p
                   id="count-groups"
@@ -50,9 +56,7 @@ export function HomePage(props) {
                     fontWeight: 'bolder',
                   }}
                 >
-                  
                   {wapiData?.db.nrSeededMusicGroups}
-                
                 </p>
               </div>
             </div>
@@ -73,8 +77,8 @@ export function HomePage(props) {
                     color: 'rgb(255, 0, 0)',
                     fontSize: '30px',
                     fontWeight: 'bolder',
-                  }} >
-      
+                  }}
+                >
                   {wapiData?.db?.nrSeededAlbums}
                 </p>
               </div>
@@ -99,12 +103,10 @@ export function HomePage(props) {
                   }}
                 >
                   {wapiData?.db?.nrSeededArtists}
-              
                 </p>
               </div>
             </div>
           </div>
-
           <p
             style={{
               color: 'gold',

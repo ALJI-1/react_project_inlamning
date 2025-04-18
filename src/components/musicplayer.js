@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-// Gjorde denna sida på skoj för att kunna lyssna på musik samtidigt
-// eftersom de är utanför kreterierna så har jag tagit hjälp av ai, men de är inte grekiska för mig 
+// Gjorde denna sida på skoj för att kunna lyssna på musik samtidigt som man surfar på sidan
+// eftersom de är utanför kreterierna så har jag tagit hjälp av ai, men de är inte grekiska
 
 const YouTubePlayer = () => {
   const [isMinimized, setIsMinimized] = useState(false);

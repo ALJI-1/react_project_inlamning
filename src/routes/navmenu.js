@@ -4,7 +4,9 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import {Link} from 'react-router';
 
-// Tagit de mesta rakt från kursmaterialet. Jag har stylat till det mer med hjälp av ai 
+// headern på sidan med navigeringar. dropdown meny med fler länkar, trycker man så länkas man via Nav.Link as={Link} to="../about" t.ex
+// Tagit de mesta rakt från kursmaterialet men stylat om det lite
+
 
 export function NavMenu() {
   return (
@@ -14,7 +16,7 @@ export function NavMenu() {
       className="mb-4"
       style={{
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-        padding: '10px 20px', 
+        padding: '10px 20px',
       }}
     >
       <Navbar.Brand
@@ -38,7 +40,7 @@ export function NavMenu() {
         }}
       />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto" style={{ alignItems: 'center' }}> 
+        <Nav className="mr-auto" style={{ alignItems: 'center' }}>
           <Nav.Link
             as={Link}
             to="../"
@@ -46,7 +48,7 @@ export function NavMenu() {
               textDecoration: 'none',
               transition: 'all 0.3s ease',
               cursor: 'pointer',
-              padding: '10px 15px'
+              padding: '10px 15px',
             }}
             onMouseEnter={(e) => {
               e.target.style.color = 'inherit';
@@ -66,7 +68,7 @@ export function NavMenu() {
               textDecoration: 'none',
               transition: 'all 0.3s ease',
               cursor: 'pointer',
-              padding: '10px 15px', 
+              padding: '10px 15px',
             }}
             onMouseEnter={(e) => {
               e.target.style.color = 'inherit';
@@ -80,7 +82,7 @@ export function NavMenu() {
             About
           </Nav.Link>
         </Nav>
-        <Nav className="ml-auto" style={{ alignItems: 'center' }}> 
+        <Nav className="ml-auto" style={{ alignItems: 'center' }}>
           <NavDropdown
             title="Pages"
             id="basic-nav-dropdown"
@@ -126,7 +128,7 @@ export function NavMenu() {
             >
               Daily
             </NavDropdown.Item>
-            <NavDropdown.Divider/>
+            <NavDropdown.Divider />
             <NavDropdown.Item
               as={Link}
               to="../detailpage"
