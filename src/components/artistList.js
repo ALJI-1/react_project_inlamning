@@ -3,10 +3,6 @@ import '../css/grid.css';
 import musicService from '../services/music-group-service';
 import { ListPage } from '../pages/listpage';
 
-//Komponent för att kommunciera med service och hämta data asynkront. 
-//States på de flesta variabler för att hålla koll om sidan behöver renderas om
-// event handlers för knappar och sökfält
-// returnerar en komponent som ritar ut data i browsern. skickar med datan,event,variablar som props 
 
 export function ArtistList(props) {
 

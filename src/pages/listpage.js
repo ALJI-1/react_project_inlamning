@@ -2,11 +2,6 @@ import React from "react";
 import '../css/grid.css';
 import { Link } from "react-router";
 
-// sidan som returnerar själva jsx koden för listan med grupper. ingen service här.
-//Sökfält m even som tar in input och skickar den vidare (eventlifting) till artistlist. 
-// preventDefault för att sidan inte ska laddas om
-// eventlifting för navigeringsknapparna
-
 export function ListPage(props) {
 
   const onSearch = async (e) => {

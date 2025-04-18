@@ -4,9 +4,6 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import {Link} from 'react-router';
 
-// headern på sidan med navigeringar. dropdown meny med fler länkar, trycker man så länkas man via Nav.Link as={Link} to="../about" t.ex
-// Tagit de mesta rakt från kursmaterialet men stylat om det lite
-
 
 export function NavMenu() {
   return (

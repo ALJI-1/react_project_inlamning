@@ -3,11 +3,6 @@ import musicService from '../services/music-group-service';
 import {useEffect, useState } from 'react';
 import {Link} from 'react-router';
 
-// Inlämningsprojekt react - Albin Ingelsson
-
-// förstasida. Den har en egen useeffect, iife och asyncront anrop för att kommunicera med servises och hämta 
-// totala antalet artister, album och musikgrupper och printar ut det. även en snabblink till gruppsidan. 
-// mycket styling med bootstrap. Har också en liten musikspelare
 
 export function HomePage() {
   

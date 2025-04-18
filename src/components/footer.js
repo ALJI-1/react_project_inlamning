@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router';
 
-// footer komponent som kommer från mitt js-projekt. Lagt till Link, stylat de med botstrap och effeker på knapparna 
-  // Link sköter hoppen mellan sidorna med nyckelorden Link och to=
-
 export function Footer() {
 
   return (

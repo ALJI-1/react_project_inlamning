@@ -12,7 +12,7 @@ function App() {
 
        <BrowserRouter> 
 
-       <YouTubePlayer /> {/*lägger spelaren här så den är är aktiv även om man byter sida */}
+       <YouTubePlayer /> 
       
        <Header/>
        <AppRouter/>

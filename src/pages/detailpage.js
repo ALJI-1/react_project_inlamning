@@ -4,11 +4,6 @@ import musicService from '../services/music-group-service';
 import '../css/grid.css';
 import { useParams } from 'react-router';
 
-// Sida som visar detaljer om en musikgrupp. Den har en egen useeffect, iife och asyncront anrop för 
-// att hämta speicfik data från api genom att i listpage fånga upp gruppens id när man trycker 
-// på detaljer, linkar till Route path="/detailpage/:id" och useparams hooken fångar upp det här
-// printar ut några olika detaljer om gruppen med JSX. map för att iterera
-
 
 export function DetailPage() {
 

@@ -3,8 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { coder, coder1, coder2 } from '../images';
 
-// sida som visar några bilder på utvecklarna 
-// Har hämtat en carousel från bootstrap hemsida
 
 export function AboutPage() {
   return (

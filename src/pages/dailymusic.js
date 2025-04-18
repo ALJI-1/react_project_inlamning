@@ -2,8 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-// sida som länkar 3 låtar i en carousel
-// Har hämtat en carousel från bootstrap hemsida och ändrat från image till iframe
 
 export function DailyMusic() {
   return (
